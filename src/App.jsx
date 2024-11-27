@@ -8,24 +8,29 @@ import GlobalContext from './contexts/GlobalContext.jsx'
 import './App.css'
 
 
-
+const api_url = 'http://localhost:3000'
 
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
 
-        <Routes>
-          <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path='/torte' element={<TortePage />} />
-            <Route path='/torte/:slug' element={<TortaPage />} />
-            <Route path='/chisiamo' element={<ChiSiamo />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalContext.Provider value={{ api_url }}>
+        <BrowserRouter>
+
+          <Routes>
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path='/torte' element={<TortePage />} />
+              <Route path='/torte/:slug' element={<TortaPage />} />
+              <Route path='/chisiamo' element={<ChiSiamo />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalContext.Provider>
+
+
 
 
 
