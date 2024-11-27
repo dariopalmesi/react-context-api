@@ -7,7 +7,7 @@ export default function AppCard({ character, handleTrashpostClick }) {
     return (
         <div className="card p-3 m-3">
             <h3 className='mb-3'>{character.title}</h3>
-            <p className="hover">{character.slug}</p>
+            <p className="slug">{character.slug}</p>
             <p>{character.content}</p>
             <Link to={`/torte/${character.slug}`}>
                 <img src={api_server + character.image} alt={character.name} />
