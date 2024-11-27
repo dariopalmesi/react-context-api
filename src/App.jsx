@@ -18,7 +18,6 @@ function App() {
 
       <GlobalContext.Provider value={{ api_url }}>
         <BrowserRouter>
-
           <Routes>
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<Home />} />

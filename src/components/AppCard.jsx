@@ -16,6 +16,7 @@ export default function AppCard({ character, handleTrashpostClick }) {
             <div className="d-grid gap-2 d-md-block">
                 <button ttype="button" className="btn btn-danger" data-slug={character.slug} onClick={() => handleTrashpostClick(character.slug)}>Trash</button>
             </div>
+
         </div>
     )
 }

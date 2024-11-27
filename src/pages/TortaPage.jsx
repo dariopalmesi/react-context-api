@@ -1,12 +1,17 @@
 import { Link, useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import GlobalContext from "../contexts/GlobalContext";
+
+
 
 
 export default function TortaPage() {
 
+    const { api_url } = useContext(GlobalContext)
+
     const [torta, setTorta] = useState(null)
     const { slug } = useParams()
-    const url = `http://localhost:3000/posts/${slug}`
+    const url = `${api_url}/posts/${slug}`
     console.log(url);
     useEffect(
         () => {
@@ -35,7 +40,7 @@ export default function TortaPage() {
                             <h3 className='mb-3'>{torta.title}</h3>
                             <p >{torta.slug}</p>
                             <p>{torta.content}</p>
-                            <img className="tortaImage" src={`http://localhost:3000/img/${torta.image}`} alt="" />
+                            <img className="tortaImage" src={`${api_url}/img/${torta.image}`} alt="" />
                             <p>{torta.tags}</p>
                             <Link to={'/torte'}>
                                 <button className="btn btn-success button">Back</button>
