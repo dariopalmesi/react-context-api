@@ -5,13 +5,13 @@ import GlobalContext from "../contexts/GlobalContext";
 
 
 
+
 export default function TortaPage() {
 
-    const { api_url } = useContext(GlobalContext)
-
+    const { api_url, posts_url } = useContext(GlobalContext)
     const [torta, setTorta] = useState(null)
     const { slug } = useParams()
-    const url = `${api_url}/posts/${slug}`
+    const url = `${posts_url}/${slug}`
     console.log(url);
     useEffect(
         () => {

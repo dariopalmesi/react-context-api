@@ -17,9 +17,9 @@ const initialFormData = {
 export default function TorteList() {
     const [formData, setFormData] = useState(initialFormData)
     const [characters, setCharacters] = useState({})
-    const { api_url } = useContext(GlobalContext)
+    const { posts_url } = useContext(GlobalContext)
 
-    function fetchData(url = `${api_url}/posts`) {
+    function fetchData(url = `${posts_url}`) {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
@@ -44,7 +44,7 @@ export default function TorteList() {
         }
 
 
-        fetch(`${api_url}/posts`, {
+        fetch(`${posts_url}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -76,7 +76,7 @@ export default function TorteList() {
     }
 
 
-    function fetchData(url = `${api_url}/posts`) {
+    function fetchData(url = `${posts_url}`) {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
@@ -90,7 +90,7 @@ export default function TorteList() {
     function handleTrashpostClick(slug) {
         console.log('Deleting post with slug:', characters);
 
-        fetch(`${api_url}/posts/${slug}`, {
+        fetch(`${posts_url}/${slug}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

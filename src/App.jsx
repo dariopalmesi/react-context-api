@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import TortePage from './pages/TortePage.jsx'
 import Home from './pages/Home.jsx'
 import ChiSiamo from './pages/ChiSiamo.jsx'
@@ -9,14 +9,14 @@ import './App.css'
 
 
 const api_url = 'http://localhost:3000'
-
+const posts_url = 'http://localhost:3000/posts'
 
 function App() {
 
   return (
     <>
 
-      <GlobalContext.Provider value={{ api_url }}>
+      <GlobalContext.Provider value={{ api_url, posts_url }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
